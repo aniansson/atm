@@ -22,7 +22,8 @@ describe ATM do
       status: true,
       message: 'success',
       date: Date.today,
-      amount: 45 }
+      amount: 45,
+      bills: [20, 20, 5] }
     expect(subject.withdraw(45, '1234', account, account.account_status)).to eq expect_output
   end
 
