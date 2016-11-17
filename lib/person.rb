@@ -1,10 +1,9 @@
 class Person
-  attr_accessor :name, :cash, :account, :deposit
+  attr_accessor :name, :cash, :account
 
 def initialize (attrs = {})
   set_name(attrs[:name])
   @cash = 0
-  @deposit = 100
 end
 
 def account_attribute
@@ -13,6 +12,14 @@ end
 
 def create_account
   @account = Account.new({owner: self})
+end
+
+def deposit(amount)
+  if @account.nil?
+    raise 'No account present'
+  else
+    @cash += amount
+  end
 end
 
 private
