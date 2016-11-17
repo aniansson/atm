@@ -1,8 +1,18 @@
 class Person
-  attr_accessor :name
+  attr_accessor :name, :cash, :account
 
 def initialize (attrs = {})
   set_name(attrs[:name])
+  @cash = 0
+
+end
+
+def account_attribute
+  person.account = nil
+end
+
+def create_account
+  @account = Account.new({owner: self})
 end
 
 private
