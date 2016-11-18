@@ -1,11 +1,9 @@
 require './lib/person.rb'
-require './lib/atm.rb'
-require './lib/account.rb'
 
 describe Person do
   subject { described_class.new(name: 'Ebba') }
 
-  it 'is expected to have a :name on initialize' do
+  it 'is expected to have a name on initialize' do
     expect(subject.name).not_to be nil
   end
 
@@ -13,11 +11,11 @@ describe Person do
     expect { described_class.new }.to raise_error 'A name is required'
   end
 
-  it 'is expected to have a :cash attribute with value of 0 on initialize' do
+  it 'is expected to have a cash attribute with value of 100 on initialize' do
     expect(subject.cash).to eq 100
   end
 
-  it 'is expected to have an :account attribute' do
+  it 'is expected to have an account attribute' do
     expect(subject.account).to be nil
   end
 
@@ -54,8 +52,7 @@ describe Person do
      end
 
      it 'withdraw is expected to raise error if no ATM is passed in' do
-       command = lambda { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account) }
-       expect { command.call }.to raise_error 'An ATM is required'
+       expect { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account) }.to raise_error 'An ATM is required'
      end
 
      it 'funds are added to cash - deducted from account balance' do

@@ -1,3 +1,5 @@
+require 'date'
+
 class Account
   attr_accessor :exp_date, :pin_code, :balance, :account_status, :owner
 
@@ -22,7 +24,7 @@ end
 
   private
     def generate_pin
-      pin_code = 1234
+      pin_code = '1234'
     end
 
     def set_owner(obj)

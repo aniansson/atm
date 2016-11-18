@@ -6,7 +6,6 @@ class Person
 def initialize (attrs = {})
   @name = set_name(attrs[:name])
   @cash = 100
-  # @account = nil
 end
 
 def account_attribute
@@ -58,12 +57,12 @@ def increase_cash(response)
   @cash += response[:amount]
 end
 
-def missing_account
-  raise RuntimeError, 'No account present'
-end
-
 def missing_atm
   raise RuntimeError, 'An ATM is required'
+end
+
+def missing_account
+  raise RuntimeError, 'No account present'
 end
 
 end
